@@ -1,0 +1,67 @@
+rootfs / rootfs ro,relatime 0 0
+tmpfs /dev tmpfs rw,nosuid,relatime,mode=755 0 0
+devpts /dev/pts devpts rw,relatime,mode=600 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+none /acct cgroup rw,relatime,cpuacct 0 0
+tmpfs /mnt/asec tmpfs rw,relatime,mode=755,gid=1000 0 0
+tmpfs /mnt/obb tmpfs rw,relatime,mode=755,gid=1000 0 0
+debugfs /mnt/debugfs debugfs rw,relatime,gid=512 0 0
+none /dev/cpuctl cgroup rw,relatime,cpu 0 0
+/dev/block/platform/msm_sdcc.3/by-num/p17 /system ext4 rw,relatime,data=ordered 0 0
+/dev/block/platform/msm_sdcc.3/by-num/p21 /data ext4 rw,nosuid,nodev,relatime,nomblk_io_submit,noauto_da_alloc,errors=panic,data=ordered 0 0
+/dev/block/platform/msm_sdcc.3/by-num/p18 /cache ext4 rw,nosuid,nodev,relatime,data=ordered 0 0
+/dev/block/platform/msm_sdcc.3/by-num/p15 /persist ext4 rw,nosuid,nodev,relatime,data=ordered 0 0
+/dev/block/vold/179:20 /storage/sdcard0 vfat rw,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+/dev/block/vold/179:20 /mnt/secure/asec vfat rw,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+tmpfs /storage/sdcard0/.android_secure tmpfs ro,relatime,size=0k,mode=000 0 0
+/dev/block/vold/179:33 /storage/sdcard1 vfat rw,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+/dev/block/dm-0 /mnt/asec/com.zappotvapple-1 ext4 ro,dirsync,nosuid,nodev,noatime 0 0
+
+
+
+rootfs / rootfs ro,relatime 0 0
+tmpfs /dev tmpfs rw,nosuid,relatime,mode=755 0 0
+devpts /dev/pts devpts rw,relatime,mode=600 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+none /acct cgroup rw,relatime,cpuacct 0 0
+tmpfs /mnt/asec tmpfs rw,relatime,mode=755,gid=1000 0 0
+tmpfs /mnt/obb tmpfs rw,relatime,mode=755,gid=1000 0 0
+debugfs /mnt/debugfs debugfs rw,relatime,gid=512 0 0
+none /dev/cpuctl cgroup rw,relatime,cpu 0 0
+/dev/block/platform/msm_sdcc.3/by-num/p17 /system ext4 rw,relatime,data=ordered 0 0
+/dev/block/platform/msm_sdcc.3/by-num/p21 /data ext4 rw,nosuid,nodev,relatime,nomblk_io_submit,noauto_da_alloc,errors=panic,data=ordered 0 0
+/dev/block/platform/msm_sdcc.3/by-num/p18 /cache ext4 rw,nosuid,nodev,relatime,data=ordered 0 0
+/dev/block/platform/msm_sdcc.3/by-num/p15 /persist ext4 rw,nosuid,nodev,relatime,data=ordered 0 0
+/dev/block/vold/179:20 /storage/sdcard0 vfat rw,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+/dev/block/vold/179:20 /mnt/secure/asec vfat rw,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+tmpfs /storage/sdcard0/.android_secure tmpfs ro,relatime,size=0k,mode=000 0 0
+/dev/block/vold/179:33 /storage/sdcard1 vfat rw,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+/dev/block/dm-0 /mnt/asec/com.zappotvapple-1 ext4 ro,dirsync,nosuid,nodev,noatime 0 0
+
+
+####TO BUILD RECOVERY###: . build/tools/device/makerecoveries.sh cm_mini_phone-eng
+
+
+
+    
+1 1 0:1 / / ro,relatime - rootfs rootfs ro
+10 1 0:10 / /dev rw,nosuid,relatime - tmpfs tmpfs rw,mode=755
+11 10 0:9 / /dev/pts rw,relatime - devpts devpts rw,mode=600
+12 1 0:3 / /proc rw,relatime - proc proc rw
+13 1 0:11 / /sys rw,relatime - sysfs sysfs rw
+14 1 0:12 / /acct rw,relatime - cgroup none rw,cpuacct
+15 1 0:13 / /mnt/asec rw,relatime - tmpfs tmpfs rw,mode=755,gid=1000
+16 1 0:14 / /mnt/obb rw,relatime - tmpfs tmpfs rw,mode=755,gid=1000
+17 1 0:5 / /mnt/debugfs rw,relatime - debugfs debugfs rw,gid=512
+18 10 0:15 / /dev/cpuctl rw,relatime - cgroup none rw,cpu
+19 1 179:17 / /system rw,relatime - ext4 /dev/block/platform/msm_sdcc.3/by-num/p17 rw,data=ordered
+20 1 179:21 / /data rw,nosuid,nodev,relatime - ext4 /dev/block/platform/msm_sdcc.3/by-num/p21 rw,nomblk_io_submit,noauto_da_alloc,errors=panic,data=ordered
+21 1 179:18 / /cache rw,nosuid,nodev,relatime - ext4 /dev/block/platform/msm_sdcc.3/by-num/p18 rw,data=ordered
+22 1 179:15 / /persist rw,nosuid,nodev,relatime - ext4 /dev/block/platform/msm_sdcc.3/by-num/p15 rw,data=ordered
+23 1 179:20 / /storage/sdcard0 rw,nosuid,nodev,noexec,noatime,nodiratime - vfat /dev/block/vold/179:20 rw,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro
+24 1 179:20 /.android_secure /mnt/secure/asec rw,nosuid,nodev,noexec,noatime,nodiratime - vfat /dev/block/vold/179:20 rw,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro
+25 23 0:16 / /storage/sdcard0/.android_secure ro,relatime - tmpfs tmpfs ro,size=0k,mode=000
+26 1 179:33 / /storage/sdcard1 rw,nosuid,nodev,noexec,noatime,nodiratime - vfat /dev/block/vold/179:33 rw,uid=1000,gid=1015,fmask=0002,dmask=0002,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro
+27 15 254:0 / /mnt/asec/com.zappotvapple-1 ro,nosuid,nodev,noatime - ext4 /dev/block/dm-0 ro,dirsync
